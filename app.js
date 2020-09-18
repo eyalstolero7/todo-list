@@ -1,7 +1,6 @@
 //jshint esversion:6
 
 
-
 const express = require("express");
 const https = require("https");
 const bodyParser = require("body-parser");
@@ -31,7 +30,7 @@ const Item = mongoose.model("Item", ItemsSchema);
 const defaultItems = [
     new Item({ name: "Welcome to your todolist!" }),
     new Item({ name: "Hit the + button to add a new item." }),
-    new Item({ name: "<-- Hit this to delete an item." }),
+    new Item({ name: "Mark the checkbox to delete an item." }),
 ];
 
 const listSchema = {
