@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <nav class="navbar navbar-light navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-brand">TodoList</p>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <!-- 6 -->
+                    <% listNames.forEach((item) =>{ %>
+                    <li class="nav-item">
+                        <% if(kebabCaseEjs(listTitle) == item.name) { %>
+                        <a class="nav-link active" href="/<%= item.name %>"><%= toUpperEjs(item.name) %></a>
+                        <% } else { %>
+                        <a class="nav-link not-active" href="/<%= item.name %>"><%= toUpperEjs(item.name) %></a>
+                        <% } %>
+                    </li>
+                    <% }); %>
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="/add/<%= kebabCaseEjs(listTitle)%>">
+                        <input type="text" id="nav-text" name="newList" placeholder="Add List"
+                            onChange="this.form.submit()" autocomplete="off">
+                    </form>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</head>
+
+<body>
