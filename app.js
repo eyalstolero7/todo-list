@@ -61,7 +61,7 @@ app.get("/:list", function (req, res) {
                     console.log(err);
                 } else {
                     console.log(lists);
-                    res.render("List", {
+                    res.render("list", {
                         listTitle: listName,
                         itemsArr: docs.items,
                         listNames: lists,
