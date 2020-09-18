@@ -46,7 +46,7 @@ app.get("/", function (req, res) {
 
 app.get("/:list", function (req, res) {
     const listName = req.params.list;
-    if(_.kebabCase(listName) === "favicon.ico") {
+    if(listName === "favicon.ico") {
         return;
     }
     List.findOne({ name: listName }, function (err, docs) {
